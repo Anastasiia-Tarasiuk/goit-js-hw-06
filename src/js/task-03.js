@@ -24,7 +24,7 @@ const images = [
   },
 ];
 
-// ============= 1 завдання ================
+// ============= завдання ================
 
 // Одержуємо доступ до ul
 const galleryListEl = document.querySelector('.gallery');
