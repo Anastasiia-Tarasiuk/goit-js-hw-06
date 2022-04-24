@@ -56,18 +56,9 @@ const divEl = document.querySelector('div#boxes');
 // ================================================
 
 
-btnCreateEl.addEventListener('click', createBoxes(function onCreateBtnClick() {
-  return Number(inputEl.value);
-}));
-
-// function onCreateBtnClick() {
-//   return Number(inputEl.value);
+function createBoxes() {
   
-// }
-
-function createBoxes(amount) {
-  
-  for (let i = 0; i < amount; i += 1) {
+  for (let i = 0; i < Number(inputEl.value); i += 1) {
     
     const divBox = document.createElement('div');
     
@@ -75,7 +66,56 @@ function createBoxes(amount) {
     divBox.style.height = `${i * 10 + 30}px`;
     divBox.style.backgroundColor = getRandomHexColor();
     
+    divBox.classList = 'newBox';
+
     divEl.append(divBox);
   }
+  
+}
+
+// function onCreateBtnClick() {
+//   return Number(inputEl.value);
+  
+// }
+
+btnCreateEl.addEventListener('click',  createBoxes);
+
+
+// const newDivEl = document.querySelectorAll('.newBox');
+
+// console.log(newDivEl);
+
+ btnDestroyEl.addEventListener('click', destroyBoxes);
+
+
+ 
+ 
+ function destroyBoxes() {
+   
+   const newDivEl = document.querySelector('.newBox');
+
+   for (let i = 0; i < Number(inputEl.value); i += 1) {
+     document.querySelector('.newBox');
+     }
+  //  let newBoxArray = [...newDivEl];
+
+   console.log(newDivEl);
+
+  //  newBoxArray = [];
+
+  //  newDivEl.remove();
+  //  [...newDivEl].slice(0);
+   
+  //  console.log(newDivEl);
+
+  //  newDivEl.forEach();
+
+  // let boxesForDelete = divEl.children;
+
+  // const arrayBoxesForDelete = [...boxesForDelete];
+
+
+  // console.log(arrayBoxesForDelete);
+// [...boxesForDelete]= []; 
 
 }
