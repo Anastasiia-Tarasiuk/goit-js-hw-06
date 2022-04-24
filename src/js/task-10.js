@@ -20,11 +20,10 @@ function getRandomHexColor() {
 
 // ============ завдання ================
 
+// Одержуємо доступ до елементів
 const inputEl = document.querySelector('input');
-
 const btnCreateEl = document.querySelector('button[data-create]');
 const btnDestroyEl = document.querySelector('button[data-destroy]');
-
 const divEl = document.querySelector('div#boxes');
 
 // btnCreateEl.addEventListener('click', onCreateBtnClick);
@@ -56,66 +55,40 @@ const divEl = document.querySelector('div#boxes');
 // ================================================
 
 
+// Функція сторення div
 function createBoxes() {
   
+  // На кожній ітерації циклу, довжиною значення інпуту...
   for (let i = 0; i < Number(inputEl.value); i += 1) {
     
+    // створюємо дів...
     const divBox = document.createElement('div');
     
+    // задаємо йому стилі...
     divBox.style.width = `${i * 10 + 30}px`;
     divBox.style.height = `${i * 10 + 30}px`;
     divBox.style.backgroundColor = getRandomHexColor();
-    
-    divBox.classList = 'newBox';
 
-    divEl.append(divBox);
+    // додаємо кожен дів до материнського
+    divEl.append(divBox); 
+
   }
   
+  //Після виконання циклу очищуємо значення інпуту
+  inputEl.value = '';
 }
 
-// function onCreateBtnClick() {
-//   return Number(inputEl.value);
+// Функція видалення дівів
+function destroyBoxes() {
   
-// }
+  // У змінну присвоюємо масив всіх новостворених дівів...  
+    const boxesForDeleteEl = [...divEl.children];
 
-btnCreateEl.addEventListener('click',  createBoxes);
+  // перебор масиву у циклі з метою видалення кожного діва
+  for (let i = 0; i < boxesForDeleteEl.length; i += 1) {
 
+    boxesForDeleteEl[i].remove();
 
-// const newDivEl = document.querySelectorAll('.newBox');
-
-// console.log(newDivEl);
-
- btnDestroyEl.addEventListener('click', destroyBoxes);
-
-
- 
- 
- function destroyBoxes() {
-   
-   const newDivEl = document.querySelector('.newBox');
-
-   for (let i = 0; i < Number(inputEl.value); i += 1) {
-     document.querySelector('.newBox');
-     }
-  //  let newBoxArray = [...newDivEl];
-
-   console.log(newDivEl);
-
-  //  newBoxArray = [];
-
-  //  newDivEl.remove();
-  //  [...newDivEl].slice(0);
-   
-  //  console.log(newDivEl);
-
-  //  newDivEl.forEach();
-
-  // let boxesForDelete = divEl.children;
-
-  // const arrayBoxesForDelete = [...boxesForDelete];
-
-
-  // console.log(arrayBoxesForDelete);
-// [...boxesForDelete]= []; 
+  }
 
 }
