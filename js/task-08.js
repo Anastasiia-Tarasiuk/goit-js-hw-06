@@ -34,13 +34,16 @@ function onSubmitForm(event) {
         // ... створюється екземпляр вбудованого класу, який ...
         const formData = new FormData(event.currentTarget);
     
-        // ... виводить всі значення елементів форми у консоль
-        formData.forEach((value, name) => {
-            console.log('name', name);
-            console.log('value', value);
-    
-        });
+        // ...створюємо пустий об'єкт
+        const objData = {};
         
+        // ...додаємо у нього властивості
+        formData.forEach((value, name) => {
+            objData[name] = value;
+        });
+
+        // ... виводить всі значення елементів форми у консоль у вигляді об'єкта
+        console.log(objData);
         // Далі функція очищує значення елементів форми
         event.currentTarget.reset();
     }

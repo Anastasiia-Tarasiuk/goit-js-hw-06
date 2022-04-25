@@ -17,12 +17,14 @@ inputEl.addEventListener('blur', onInputBlur);
 
 // Колбек-функція на подію
 function onInputBlur(event) {
-    
+    inputEl.classList.remove("valid");
+    inputEl.classList.remove("invalid");   
+
     // Якщо довжина значення input (число) рівне значенню атрибута input (строка)
     if (event.currentTarget.value.length === Number(event.currentTarget.getAttribute('data-length'))) {
         // тоді додаємо клас на input
         return inputEl.classList.add("valid");        
-    }
+    } 
     // інакше додаємо інший клас на input
     return inputEl.classList.add("invalid"); 
 }
